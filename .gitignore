@@ -1,0 +1,6 @@
+TERRA/.terraform
+TERRA/.terraform.lock.hcl
+TERRA/terraform.tfstate
+TERRA/terraform.tfstate.backup
+TERRA/planfile
+PACK/packer_cache
