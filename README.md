@@ -17,7 +17,7 @@ Build the templates:
 
 ## Terraform
 
-update `TERRA\000-variables.tf`
+update `TERRA\variables.tf`
 
 deploy the vms from the templates:
 
