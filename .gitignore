@@ -7,3 +7,4 @@ PACK/packer_cache
 tf_ansible_vars_file.yml
 tf_ansible_inventory.yml
 tf_enable_remoting.ps1
+READ_ME_FOR_NEXT_STEPS.txt
