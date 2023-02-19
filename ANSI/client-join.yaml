@@ -1,0 +1,30 @@
+---
+- name: Join clients to domain
+  hosts: winclient
+  vars_files:
+    - ../tf_ansible_vars_file.yml
+  gather_facts: no
+  tasks:
+
+  - name: Check mandatory variables imported from Terraform
+    assert:
+      that:
+        - dc_address is defined
+        - dc_hostname is defined
+      fail_msg: "tf_* variable usually defined in '..tf_ansible_vars_file.yml' is missing"
+
+  - name: Wait for system to become reachable over WinRM
+    wait_for_connection:
+      timeout: 900
+
+  - name: Join Domain
+      ansible.windows.win_domain_membership:
+        dns_domain_name: '{{ domain_name }}'
+        domain_admin_user: '{{ local_admin }}'
+        domain_admin_password: '{{ dc_password }}'
+        state: domain
+    register: domain_state
+
+  - name: Reboot em
+      ansible.windows.win_reboot:
+    when: domain_state.reboot_required

@@ -4,3 +4,6 @@ TERRA/terraform.tfstate
 TERRA/terraform.tfstate.backup
 TERRA/planfile
 PACK/packer_cache
+tf_ansible_vars_file.yml
+tf_ansible_inventory.yml
+tf_enable_remoting.ps1

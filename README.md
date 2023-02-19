@@ -28,14 +28,13 @@ deploy the vms from the templates:
 ## Domain Controller Prep
 
 do some setup:
-- enable winrm on server
-- cd into `TERRA\`
-- run `invoke-command -computername (dc-ip) -filepath .\ConfigureRemotingForAnsible.ps1 -Credential (get-credential packer)`
+- run `invoke-command -computername (dc-ip) -filepath .\ANSI\ConfigureRemotingForAnsible.ps1 -Credential (get-credential packer)`
 
 ## Ansible
 
-        cd ANSI
-        ansible-playbook main.yml 
+I use a WSL2 Ubuntu box for this.
+
+        ansible-playbook .\ANSI\main.yml 
 
 ## Inevitably troubleshoot
 
